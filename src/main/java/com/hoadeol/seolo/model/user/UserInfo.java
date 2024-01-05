@@ -11,10 +11,10 @@ public class UserInfo {
 
   String userId;  //유저가 회원가입 시 입력한 id
   String name;
-  String tel;
+  String tel; //TODO 전화번호 유효성
   String nickName;
-  String email;
-  String profilePicture;
+  String email; //TODO 이메일 유효성
+  String profilePicturePath;
   @Embedded
   Address address;
   LocalDateTime registrationDate;
@@ -25,19 +25,19 @@ public class UserInfo {
     tel = null;
     nickName = null;
     email = null;
-    profilePicture = null;
+    profilePicturePath = null;
     address = null;
     registrationDate = null;
   }
 
   public UserInfo(String userId, String name, String tel, String nickName, String email,
-      String profilePicture, Address address, LocalDateTime registrationDate) {
+      String profilePicturePath, Address address, LocalDateTime registrationDate) {
     this.userId = userId;
     this.name = name;
     this.tel = tel;
     this.nickName = nickName;
     this.email = email;
-    this.profilePicture = profilePicture;
+    this.profilePicturePath = profilePicturePath;
     this.address = address;
     this.registrationDate = registrationDate;
   }
