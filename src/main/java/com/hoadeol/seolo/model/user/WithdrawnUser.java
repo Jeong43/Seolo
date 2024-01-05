@@ -23,4 +23,15 @@ public class WithdrawnUser {
   private String comment;
   private LocalDateTime withdrawnDate;
 
+  public static WithdrawnUser createWithdrawnUser(User user, WithdrawnType withdrawnType, String comment) {
+    WithdrawnUser withdrawnUser = new WithdrawnUser();
+    withdrawnUser.setAccount(user.getAccount());
+    withdrawnUser.setUserInfo(user.getUserInfo());
+    withdrawnUser.setWithdrawnType(withdrawnType);
+    withdrawnUser.setComment(comment);
+    withdrawnUser.setWithdrawnDate(LocalDateTime.now());
+
+    return withdrawnUser;
+  }
+
 }
