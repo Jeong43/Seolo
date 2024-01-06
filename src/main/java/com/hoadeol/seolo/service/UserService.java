@@ -50,7 +50,7 @@ public class UserService {
    * 회원아이디 중복 검증
    */
   private void validateDuplicateUserId(String userId) {
-    List<User> byUserId = userRepository.getByUserId(userId);
+    List<User> byUserId = userRepository.findByUserInfoUserId(userId);
     if (!byUserId.isEmpty()) {
       throw new IllegalStateException("이미 존재하는 아이디입니다.");
     }
@@ -60,12 +60,12 @@ public class UserService {
    * 회원정보 중복 검증
    */
   private void validateDuplicateUserInfo(UserInfo userInfo) {
-    List<User> byTel = userRepository.findByTel(userInfo.getTel());
+    List<User> byTel = userRepository.findByUserInfoTel(userInfo.getTel());
     if (!byTel.isEmpty()) {
       throw new IllegalStateException("이미 존재하는 전화번호입니다.");
     }
 
-    List<User> byNickName = userRepository.findByNickName(userInfo.getNickName());
+    List<User> byNickName = userRepository.findByUserInfoNickName(userInfo.getNickName());
     if (!byNickName.isEmpty()) {
       throw new IllegalStateException("이미 존재하는 닉네임입니다.");
     }
