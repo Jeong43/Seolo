@@ -89,7 +89,9 @@ public class MemberService {
    */
   @Transactional
   public Long withdrawn(Long id, WithdrawnType withdrawnType, String comment) {
-    Member member = memberRepository.findById(id).get();
+    Member member = memberRepository.findById(id).orElseThrow(
+        () -> new IllegalStateException("존재하지 않는 회원입니다.")
+    );
 
     // 탈퇴회원 등록
     WithdrawnMember withdrawnMember
