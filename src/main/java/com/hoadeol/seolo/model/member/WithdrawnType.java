@@ -1,4 +1,4 @@
-package com.hoadeol.seolo.model.user;
+package com.hoadeol.seolo.model.member;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

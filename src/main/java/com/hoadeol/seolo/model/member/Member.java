@@ -1,5 +1,6 @@
-package com.hoadeol.seolo.model.user;
+package com.hoadeol.seolo.model.member;
 
+import com.hoadeol.seolo.dto.MemberDto;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +11,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class User {
+public class Member {
 
   @Id
   @GeneratedValue
@@ -22,5 +23,13 @@ public class User {
   private Account account; //계정 고유번호
   private String password;
   @Embedded
-  private UserInfo userInfo;
+  private MemberInfo memberInfo;
+
+  public static Member createMember(MemberDto memberDto) {
+    Member member = new Member();
+    member.setAccount(memberDto.getAccount());
+    member.setPassword(memberDto.getPassword());
+    member.setMemberInfo(new MemberInfo(memberDto.getUserInfo()));
+    return member;
+  }
 }

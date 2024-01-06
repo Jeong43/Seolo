@@ -1,9 +1,8 @@
-package com.hoadeol.seolo.model.user;
+package com.hoadeol.seolo.model.member;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Entity
@@ -12,6 +11,5 @@ public class Account {
 
   @Id
   @GeneratedValue
-  @OneToOne(mappedBy = "accountId")
-  private User id;
+  private Long id;
 }

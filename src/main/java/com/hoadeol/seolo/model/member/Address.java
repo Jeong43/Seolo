@@ -1,4 +1,4 @@
-package com.hoadeol.seolo.model.user;
+package com.hoadeol.seolo.model.member;
 
 import jakarta.persistence.Embeddable;
 import lombok.Value;
