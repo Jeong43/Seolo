@@ -78,7 +78,9 @@ public class MemberService {
   public Member updateUser(Long id, Member updatedMember) {
     validateDuplicateUserInfo(updatedMember.getMemberInfo());
 
-    Member existingMember = memberRepository.getById(id);
+    Member existingMember = memberRepository.findById(id).orElseThrow(
+        () -> new IllegalStateException("존재하지 않는 회원입니다.")
+    );
     existingMember.setMemberInfo(updatedMember.getMemberInfo());
     existingMember.setPassword(updatedMember.getPassword());
     return memberRepository.save(existingMember);
